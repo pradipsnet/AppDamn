@@ -1,0 +1,59 @@
+﻿@model AppDamnModels.UserAccViewModel
+@{
+    ViewBag.Title = "RegisterUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sign Up</h2>
+@using (Html.BeginForm("RegisterUser", "UserAccount", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.ProfList, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @*@for(int i= 0; i < Model.ProfList.Count; i++)
+                {@Html.DropDownListFor(Model=>Model.ProfList[i].Profession, new SelectList(Model.ProfList.Select(m => m.Profession)))}*@                               
+                @Html.DropDownListFor(m => m.ProfList[0].ProfessionCode, new SelectList(Model.ProfList.Select(m => m.Profession)), "-- Please select your profession--")
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.EMail, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.EMail, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PWD, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PWD, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPWD, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.ConfirmPWD, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="btnRegisterUser" type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+    @Scripts.Render("~/bundles/Custom")
+</div>

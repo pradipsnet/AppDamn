@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CCOR_AppsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CCOR_AppsDB.dbo.ProfessionInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ProfessionInfo">
+          <Key>
+            <PropertyRef Name="ProfessionID" />
+          </Key>
+          <Property Name="ProfessionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProfessionCode" Type="varchar" MaxLength="6" />
+          <Property Name="Profession" Type="varchar" MaxLength="80" />
+          <Property Name="ProfDescription" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CCOR_AppsDB.dbo.UserAccountInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserAccountInfo">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserCode" Type="varchar" MaxLength="8" />
+          <Property Name="ProfessionCode" Type="varchar" MaxLength="6" />
+          <Property Name="UserName" Type="varchar" MaxLength="80" />
+          <Property Name="EMail" Type="varchar" MaxLength="200" />
+          <Property Name="PWD" Type="varchar" MaxLength="20" />
+          <Property Name="ConfirmPWD" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <Function Name="GetAllProfessionInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="CCOR_AppsDBModelStoreContainer">
+          <EntitySet Name="ProfessionInfo" EntityType="Self.ProfessionInfo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ProfessionInfo].[ProfessionID] AS [ProfessionID], 
+    [ProfessionInfo].[ProfessionCode] AS [ProfessionCode], 
+    [ProfessionInfo].[Profession] AS [Profession], 
+    [ProfessionInfo].[ProfDescription] AS [ProfDescription], 
+    [ProfessionInfo].[CreatedDate] AS [CreatedDate], 
+    [ProfessionInfo].[UpdatedDate] AS [UpdatedDate], 
+    [ProfessionInfo].[IsActive] AS [IsActive]
+    FROM [dbo].[ProfessionInfo] AS [ProfessionInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserAccountInfo" EntityType="Self.UserAccountInfo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserAccountInfo].[UserID] AS [UserID], 
+    [UserAccountInfo].[UserCode] AS [UserCode], 
+    [UserAccountInfo].[ProfessionCode] AS [ProfessionCode], 
+    [UserAccountInfo].[UserName] AS [UserName], 
+    [UserAccountInfo].[EMail] AS [EMail], 
+    [UserAccountInfo].[PWD] AS [PWD], 
+    [UserAccountInfo].[ConfirmPWD] AS [ConfirmPWD], 
+    [UserAccountInfo].[CreatedDate] AS [CreatedDate], 
+    [UserAccountInfo].[UpdatedDate] AS [UpdatedDate], 
+    [UserAccountInfo].[IsActive] AS [IsActive]
+    FROM [dbo].[UserAccountInfo] AS [UserAccountInfo]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CCOR_AppsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ProfessionInfo">
+          <Key>
+            <PropertyRef Name="ProfessionID" />
+          </Key>
+          <Property Name="ProfessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfessionCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Profession" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="ProfDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserAccountInfo">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="EMail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmPWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="CCOR_AppsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProfessionInfoes" EntityType="Self.ProfessionInfo" />
+          <EntitySet Name="UserAccountInfoes" EntityType="Self.UserAccountInfo" />
+          <FunctionImport Name="GetAllProfessionInfo" EntitySet="ProfessionInfoes" ReturnType="Collection(CCOR_AppsDBModel.ProfessionInfo)" />
+        </EntityContainer>
+        <ComplexType Name="GetAllProfessionInfo_Result">
+          <Property Type="Int32" Name="ProfessionID" Nullable="false" />
+          <Property Type="String" Name="ProfessionCode" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Profession" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="ProfDescription" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CCOR_AppsDBModelStoreContainer" CdmEntityContainer="CCOR_AppsDBEntities">
+          <EntitySetMapping Name="ProfessionInfoes">
+            <EntityTypeMapping TypeName="CCOR_AppsDBModel.ProfessionInfo">
+              <MappingFragment StoreEntitySet="ProfessionInfo">
+                <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+                <ScalarProperty Name="ProfessionCode" ColumnName="ProfessionCode" />
+                <ScalarProperty Name="Profession" ColumnName="Profession" />
+                <ScalarProperty Name="ProfDescription" ColumnName="ProfDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAccountInfoes">
+            <EntityTypeMapping TypeName="CCOR_AppsDBModel.UserAccountInfo">
+              <MappingFragment StoreEntitySet="UserAccountInfo">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="ProfessionCode" ColumnName="ProfessionCode" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="ConfirmPWD" ColumnName="ConfirmPWD" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllProfessionInfo" FunctionName="CCOR_AppsDBModel.Store.GetAllProfessionInfo">
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
