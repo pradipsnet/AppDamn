@@ -27,10 +27,10 @@ namespace AppDamn.Controllers
         [HttpPost]
         public ActionResult RegisterUser(UserAccViewModel model)
         {
-            //ViewBag.Message = "Your contact page.";
-            //UserAccViewModel userModel = new UserAccViewModel();       
-            //_usrAccBAL.CreateUserAccount(model);
-            
+            ViewBag.Message = "Your contact page.";
+            UserAccViewModel userModel = new UserAccViewModel();
+            _usrAccBAL.CreateUserAccount(model);
+
 
             return View(model);
         }
