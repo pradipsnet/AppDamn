@@ -9,6 +9,7 @@ using AppDamnModels;
 
 namespace AppDamn.Controllers
 {
+    [Authorize(Roles ="Admin",Users ="")]
     public class UserAccountController : Controller
     {
         UserAccount _usrAccBAL; 
