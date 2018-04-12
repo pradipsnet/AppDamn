@@ -67,6 +67,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppDamnModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AppDamnPaasModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDamnPaasModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDamnPaasModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDamnPaasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDamnPaasModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDamnPaasModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="AppRolesPermissionInfo.cs">
+      <DependentUpon>AppDamnPaasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppUserRolesInfo.cs">
+      <DependentUpon>AppDamnPaasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppUsersInfo.cs">
+      <DependentUpon>AppDamnPaasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>AppDamnPaasModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetAllProfessionInfo_Result.cs">
       <DependentUpon>AppDamnModel.tt</DependentUpon>
     </Compile>
@@ -87,6 +114,13 @@
     <None Include="AppDamnModel.edmx.diagram">
       <DependentUpon>AppDamnModel.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="AppDamnPaasModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AppDamnPaasModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AppDamnPaasModel.edmx.diagram">
+      <DependentUpon>AppDamnPaasModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +136,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AppDamnModel.edmx</DependentUpon>
       <LastGenOutput>AppDamnModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppDamnPaasModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AppDamnPaasModel.edmx</DependentUpon>
+      <LastGenOutput>AppDamnPaasModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppDamnPaasModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AppDamnPaasModel.edmx</DependentUpon>
+      <LastGenOutput>AppDamnPaasModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
